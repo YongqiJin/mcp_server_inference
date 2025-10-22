@@ -16,7 +16,7 @@ from structs.nmr import (
 from structs.base import RES
 from tools.chem_tools import draw_mol_with_nmr
 from rdkit import Chem
-from loguru import logger
+# from loguru import logger
 import tempfile
 import time
 from dp.agent.server.storage.bohrium_storage import BohriumStorage
@@ -47,12 +47,12 @@ def add_svg(res:Result)->Result:
                 f"nmr_svg/{timestamp}/",
                 f.name,
             )
-            logger.info(f"upload svg to bohrium storage: {key}")
+            # logger.info(f"upload svg to bohrium storage: {key}")
             http_url = storage.get_http_url(key)
-            logger.info(f"uploaded svg can be fetch with: {http_url}")
+            # logger.info(f"uploaded svg can be fetch with: {http_url}")
             res.svg = f"{http_url}"
     except Exception as e:
-        logger.error(f"upload svg to bohrium storage error: {e}")
+        # logger.error(f"upload svg to bohrium storage error: {e}")
         raise e
     
     return res
