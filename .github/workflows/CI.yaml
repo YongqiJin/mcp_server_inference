@@ -36,6 +36,9 @@ jobs:
           echo "BOHRIUM_PASSWORD=${{ secrets.BOHRIUM_PASSWORD }}" >> $GITHUB_ENV
           echo "BOHRIUM_USERNAME=${{ secrets.BOHRIUM_USERNAME }}" >> $GITHUB_ENV
           echo "BOHRIUM_PROJECT_ID=${{ secrets.BOHRIUM_PROJECT_ID }}" >> $GITHUB_ENV
+          echo "BOHRIUM_PASSWORD=$BOHRIUM_PASSWORD"
+          echo "BOHRIUM_USERNAME=$BOHRIUM_USERNAME"
+          echo "BOHRIUM_PROJECT_ID=$BOHRIUM_PROJECT_ID"
 
       
       # 添加步骤来获取当前日期并格式化为年月日形式
