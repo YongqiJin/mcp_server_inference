@@ -5,6 +5,7 @@ description = "mcp server for molecule property prediction"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "bohr-agent-sdk>=0.1.107",
     "fastmcp>=2.9.2",
     "ipython>=8.37.0",
     "loguru>=0.7.3",
