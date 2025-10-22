@@ -39,9 +39,9 @@ jobs:
 
       - name: Debug print BOHRIUM vars (will be masked)
         run: |
-          echo "BOHRIUM_PASSWORD=$BOHRIUM_PASSWORD"
-          echo "BOHRIUM_USERNAME=$BOHRIUM_USERNAME"
-          echo "BOHRIUM_PROJECT_ID=$BOHRIUM_PROJECT_ID"
+          echo -n "$BOHRIUM_PASSWORD" | wc -c | xargs printf "BOHRIUM_PASSWORD length=%s\n"
+          echo -n "$BOHRIUM_USERNAME" | wc -c | xargs printf "BOHRIUM_USERNAME length=%s\n"
+          echo -n "$BOHRIUM_PROJECT_ID" | wc -c | xargs printf "BOHRIUM_PROJECT_ID length=%s\n"
 
       
       # 添加步骤来获取当前日期并格式化为年月日形式
