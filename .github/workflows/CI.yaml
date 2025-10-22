@@ -31,11 +31,11 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME_DP }}
           password: ${{ secrets.DOCKER_PASSWORD_DP }}
 
-      - name: Set BORHIUM environment variables
+      - name: Set BOHRIUM environment variables
         run: |
-          echo "BORHIUM_PASSWORD=${{ secrets.BORHIUM_PASSWORD }}" >> $GITHUB_ENV
-          echo "BORHIUM_USERNAME=${{ secrets.BORHIUM_USERNAME }}" >> $GITHUB_ENV
-          echo "BORHIUM_PROJECT_ID=${{ secrets.BORHIUM_PROJECT_ID }}" >> $GITHUB_ENV
+          echo "BOHRIUM_PASSWORD=${{ secrets.BOHRIUM_PASSWORD }}" >> $GITHUB_ENV
+          echo "BOHRIUM_USERNAME=${{ secrets.BOHRIUM_USERNAME }}" >> $GITHUB_ENV
+          echo "BOHRIUM_PROJECT_ID=${{ secrets.BOHRIUM_PROJECT_ID }}" >> $GITHUB_ENV
 
       
       # 添加步骤来获取当前日期并格式化为年月日形式
