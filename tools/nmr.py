@@ -23,13 +23,13 @@ from dp.agent.server.storage.bohrium_storage import BohriumStorage
 from tools.env import BOHRIUM_PASSWORD, BOHRIUM_USERNAME, BOHRIUM_PROJECT_ID
 import os
 
-BOHRIUM_USERNAME = os.getenv("BOHRIUM_USERNAME", BOHRIUM_USERNAME)
-BOHRIUM_PASSWORD = os.getenv("BOHRIUM_PASSWORD", BOHRIUM_PASSWORD)
-BOHRIUM_PROJECT_ID = os.getenv("BOHRIUM_PROJECT_ID", BOHRIUM_PROJECT_ID)
+BOHRIUM_USERNAME = os.getenv("BOHRIUM_USERNAME")
+BOHRIUM_PASSWORD = os.getenv("BOHRIUM_PASSWORD")
+BOHRIUM_PROJECT_ID = os.getenv("BOHRIUM_PROJECT_ID")
 
-storage = BohriumStorage(username=BOHRIUM_USERNAME, password=BOHRIUM_PASSWORD, project_id=BOHRIUM_PROJECT_ID)
 
 def add_svg(res:Result)->Result:
+    storage = BohriumStorage(username=BOHRIUM_USERNAME, password=BOHRIUM_PASSWORD, project_id=BOHRIUM_PROJECT_ID)
     """Upload svg to bohrium storage and add the link to the result
     """
     svg_content = draw_mol_with_nmr(
