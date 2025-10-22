@@ -147,5 +147,4 @@ def draw_mol_with_nmr(mol_list: List, shifts_list: List, nmr_type: List = ["H", 
         display(SVG(svg))
     if save_path:
         save_img(svg, save_path)
-    print(type(svg))
     return svg

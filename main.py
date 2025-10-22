@@ -79,7 +79,15 @@ async def pk_meta():
     Returns: List of candidate molecules with SMILES, predicted NMR data, and spectral similarity scores
     """,)
 async def NMR_search_tool(data: SearchParam) -> RES[list[Result]]:
-    return await NMR_search(data)
+    try:
+        if data is None:
+            return RES(code=-1, msg="Invalid input: data cannot be None")
+        else:
+            result = await NMR_search(data)
+            return result
+        
+    except Exception as e:
+        return RES(code=-1, msg=f"nmr search error: {e}")
 
 @mcp.tool(
     name="NMR_predict",
@@ -95,7 +103,15 @@ async def NMR_search_tool(data: SearchParam) -> RES[list[Result]]:
     """,
 )
 async def NMR_predict_tool(data: PredictParam) -> RES[list[Result]]:
-    return await NMR_predict(data)
+    try:
+        if data is None:
+            return RES(code=-1, msg="Invalid input: data cannot be None")
+        else:
+            result = await NMR_predict(data)
+            return result
+    
+    except Exception as e:
+        return RES(code=-1, msg=f"nmr predict error: {e}")
 
 @mcp.tool(
     name="NMR_reverse_predict",
@@ -111,8 +127,16 @@ async def NMR_predict_tool(data: PredictParam) -> RES[list[Result]]:
     """,
 )
 async def NMR_reverse_predict_tool(data: ReversePredictParam) -> RES[list[Result]]:
-    return await NMR_reverse_predict(data)
+    try:
+        if data is None:
+            return RES(code=-1, msg="Invalid input: data cannot be None")
+        else:
+            result = await NMR_reverse_predict(data)
+            return result
+
+    except Exception as e:
+        return RES(code=-1, msg=f"nmr reverse predict error: {e}")
 
 
 if __name__ == "__main__":
-    mcp.run(transport='sse',host="0.0.0.0",port=5003)
+    mcp.run(transport='sse',host="0.0.0.0",port=50003)
