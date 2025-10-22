@@ -27,7 +27,10 @@ BOHRIUM_USERNAME = os.getenv("BOHRIUM_USERNAME")
 BOHRIUM_PASSWORD = os.getenv("BOHRIUM_PASSWORD")
 BOHRIUM_PROJECT_ID = os.getenv("BOHRIUM_PROJECT_ID")
 
-storage = BohriumStorage(username=BOHRIUM_USERNAME, password=BOHRIUM_PASSWORD, project_id=BOHRIUM_PROJECT_ID)
+try:
+    storage = BohriumStorage(username=BOHRIUM_USERNAME, password=BOHRIUM_PASSWORD, project_id=BOHRIUM_PROJECT_ID)
+except:
+    raise RuntimeError(f"Failed to initialize BohriumStorage. username: {BOHRIUM_USERNAME}, project_id: {BOHRIUM_PROJECT_ID}")
 
 def add_svg(res:Result)->Result:
     """Upload svg to bohrium storage and add the link to the result
