@@ -36,6 +36,9 @@ jobs:
           echo "BOHRIUM_PASSWORD=${{ secrets.BOHRIUM_PASSWORD }}" >> $GITHUB_ENV
           echo "BOHRIUM_USERNAME=${{ secrets.BOHRIUM_USERNAME }}" >> $GITHUB_ENV
           echo "BOHRIUM_PROJECT_ID=${{ secrets.BOHRIUM_PROJECT_ID }}" >> $GITHUB_ENV
+
+      - name: Debug print BOHRIUM vars (will be masked)
+        run: |
           echo "BOHRIUM_PASSWORD=$BOHRIUM_PASSWORD"
           echo "BOHRIUM_USERNAME=$BOHRIUM_USERNAME"
           echo "BOHRIUM_PROJECT_ID=$BOHRIUM_PROJECT_ID"
